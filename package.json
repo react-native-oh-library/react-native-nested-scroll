@@ -1,7 +1,7 @@
 {
   "name": "@react-native-oh-tpl/react-native-nested-scroll",
   "description": "A react-native NestedScrollView component.",
-  "version": "0.14.2",
+  "version": "0.15.0-rc.1",
   "main": "./src/index.tsx",
   "react-native": "src/index",
   "nativePackage": true,
@@ -55,7 +55,13 @@
     ]
   },
   "harmony": {
-    "alias": "react-native-nested-events"
+    "alias": "react-native-nested-scroll",
+    "autolinking": {
+      "etsPackageClassName":"NestedScrollViewPackage",
+      "cppPackageClassName":"NestedScrollViewPackage",
+      "cmakeLibraryTargetName": "rnoh_nested_scroll",
+      "ohPackageName": "@react-native-oh-tpl/react-native-nested-scroll"
+    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
