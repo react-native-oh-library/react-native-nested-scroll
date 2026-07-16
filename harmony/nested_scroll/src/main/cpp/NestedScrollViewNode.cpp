@@ -28,7 +28,6 @@
 
 namespace rnoh {
 static void receiveEvent(ArkUI_NodeEvent* event) {
-#ifdef C_API_ARCH
   try {
     auto eventType = OH_ArkUI_NodeEvent_GetEventType(event);
     auto target = static_cast<NestedScrollViewNode*>(
@@ -41,7 +40,6 @@ static void receiveEvent(ArkUI_NodeEvent* event) {
   } catch (std::exception& e) {
     LOG(ERROR) << e.what();
   }
-#endif
 }
 
 NestedScrollViewNode::NestedScrollViewNode()
@@ -57,13 +55,21 @@ NestedScrollViewNode::~NestedScrollViewNode() {
 }
 
 void NestedScrollViewNode::handleScroll() {
-    if (child) {
-        handleScrollView(child);
+    for (auto& child : children) {
+        if (child) {
+            handleScrollView(child);
+        }
     }
 }
 
-void NestedScrollViewNode::setChild(ComponentInstance::Shared childComponentInstance) {
-    child = childComponentInstance;
+
+void NestedScrollViewNode::addChild(ComponentInstance::Shared childComponentInstance) {
+    children.push_back(childComponentInstance);
+}
+
+void NestedScrollViewNode::removeChildInstance(ComponentInstance::Shared childComponentInstance) {
+    auto it = std::remove(children.begin(), children.end(), childComponentInstance);
+    children.erase(it, children.end());
 }
 
 void NestedScrollViewNode::setHeaderChild(ComponentInstance::Shared childComponentInstance) {
@@ -102,11 +108,16 @@ void NestedScrollViewNode::setBounce(ArkUI_NodeHandle node, bool bounces) {
 }
  
 void NestedScrollViewNode::setNestedScrollMode(ComponentInstance::Shared childComponentInstance) {
-    ArkUI_NumberValue scrollNestedValue[] ={{.i32 = ARKUI_SCROLL_NESTED_MODE_PARENT_FIRST},{.i32 = ARKUI_SCROLL_NESTED_MODE_SELF_FIRST}};
-    ArkUI_AttributeItem nestedScrollItem = {scrollNestedValue, sizeof(scrollNestedValue) / sizeof(ArkUI_NumberValue)};
     auto scrollView = std::dynamic_pointer_cast<ScrollViewComponentInstance>(childComponentInstance);
-    scrollView->setNestedScrollMode(ARKUI_SCROLL_NESTED_MODE_PARENT_FIRST, ARKUI_SCROLL_NESTED_MODE_SELF_FIRST);
-//     maybeThrow(NativeNodeApi::getInstance()->setAttribute(scrollView->getLocalRootArkUINode().getArkUINodeHandle(), NODE_SCROLL_NESTED_SCROLL, &nestedScrollItem));
+    if (scrollView) {
+        setBounce(childComponentInstance->getLocalRootArkUINode().getArkUINodeHandle(), bounces);
+        scrollView->setNestedScrollMode(ARKUI_SCROLL_NESTED_MODE_PARENT_FIRST, ARKUI_SCROLL_NESTED_MODE_SELF_FIRST);
+    } else {
+        setBounce(childComponentInstance->getLocalRootArkUINode().getArkUINodeHandle(), bounces);
+        ArkUI_NumberValue scrollNestedValue[] ={{.i32 = ARKUI_SCROLL_NESTED_MODE_PARENT_FIRST},{.i32 = ARKUI_SCROLL_NESTED_MODE_SELF_FIRST}};
+        ArkUI_AttributeItem nestedScrollItem = {scrollNestedValue, sizeof(scrollNestedValue) / sizeof(ArkUI_NumberValue)};
+        maybeThrow(NativeNodeApi::getInstance()->setAttribute(childComponentInstance->getLocalRootArkUINode().getArkUINodeHandle(), NODE_SCROLL_NESTED_SCROLL, &nestedScrollItem));
+    }
 }
 
 void NestedScrollViewNode::setScrollBarOff(ArkUI_NodeHandle node) {

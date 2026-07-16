@@ -62,7 +62,7 @@ void NestedScrollViewComponentInstance::onChildInserted(
         this->getLocalRootArkUINode().setHeaderChild(childComponentInstance);
         fixColumnAll.insertChild(childComponentInstance->getLocalRootArkUINode(), index);
     } else {
-        this->getLocalRootArkUINode().setChild(childComponentInstance);
+        this->getLocalRootArkUINode().addChild(childComponentInstance);
         fixColumnAll.insertChild(childComponentInstance->getLocalRootArkUINode(), index);
     }
 }
@@ -75,6 +75,7 @@ void NestedScrollViewComponentInstance::onLayoutChanged(
 void NestedScrollViewComponentInstance::onChildRemoved(
     ComponentInstance::Shared const& childComponentInstance) {
   CppComponentInstance::onChildRemoved(childComponentInstance);
+  mNestedScrollNode.removeChildInstance(childComponentInstance);
   mNestedScrollNode.removeChild(
       childComponentInstance->getLocalRootArkUINode());
 }
@@ -83,7 +84,7 @@ NestedScrollViewNode &NestedScrollViewComponentInstance::getLocalRootArkUINode()
 
 void NestedScrollViewComponentInstance::onPropsChanged(SharedConcreteProps const &props) {
     CppComponentInstance::onPropsChanged(props);
-    bounces = props->bounces;
+    this->getLocalRootArkUINode().bounces = props->bounces;
     this->getLocalRootArkUINode().setScrollBarOff(mNestedScrollNode.getArkUINodeHandle());
 
 }
