@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-oh-tpl/react-native-nested-scroll",
+  "name": "@react-native-ohos/react-native-nested-scroll",
   "description": "A react-native NestedScrollView component.",
   "version": "0.15.0-rc.1",
   "main": "./src/index.tsx",
@@ -60,7 +60,7 @@
       "etsPackageClassName":"NestedScrollViewPackage",
       "cppPackageClassName":"NestedScrollViewPackage",
       "cmakeLibraryTargetName": "rnoh_nested_scroll",
-      "ohPackageName": "@react-native-oh-tpl/react-native-nested-scroll"
+      "ohPackageName": "@react-native-ohos/react-native-nested-scroll"
     }
   },
   "publishConfig": {
