@@ -48,6 +48,7 @@ namespace rnoh {
         ~NestedScrollViewNode() override;
         void insertChild(ArkUINode &child, std::size_t index);
         void removeChild(ArkUINode &child);
+        void setBounceChange(const bool bounces);
         void setBounce(ArkUI_NodeHandle node, const bool bounces);
         void setNestedScrollMode(ComponentInstance::Shared childComponentInstance);
         void onNodeEvent(ArkUI_NodeEventType eventType, EventArgs& eventArgs) override;
