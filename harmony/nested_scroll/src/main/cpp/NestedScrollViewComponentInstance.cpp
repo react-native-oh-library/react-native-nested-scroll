@@ -85,6 +85,7 @@ NestedScrollViewNode &NestedScrollViewComponentInstance::getLocalRootArkUINode()
 void NestedScrollViewComponentInstance::onPropsChanged(SharedConcreteProps const &props) {
     CppComponentInstance::onPropsChanged(props);
     this->getLocalRootArkUINode().bounces = props->bounces;
+    this->getLocalRootArkUINode().setBounceChange(props->bounces);
     this->getLocalRootArkUINode().setScrollBarOff(mNestedScrollNode.getArkUINodeHandle());
 
 }
@@ -92,8 +93,7 @@ void NestedScrollViewComponentInstance::onPropsChanged(SharedConcreteProps const
 void NestedScrollViewComponentInstance::onScroll(facebook::react::NestedScrollViewEventEmitter::NestedScrollEvent nestedScrollEvent) {
     auto item = NativeNodeApi::getInstance()->getAttribute(mNestedScrollNode.getArkUINodeHandle(), NODE_SCROLL_OFFSET);
     facebook::react::NestedScrollViewHeaderEventEmitter::NestedScrollHeaderEvent nestedScrollHeaderEvent{
-                item->value[0].f32,
-                item->value[1].f32
+                {item->value[0].f32, item->value[1].f32}
             };
     rNCNestedScrollViewHeaderNative->onScroll(nestedScrollHeaderEvent);
 }
