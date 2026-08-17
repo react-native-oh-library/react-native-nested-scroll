@@ -8,12 +8,13 @@ This project is developed based on [react-native-nested-scroll@0.14.0](https://g
 
 | Name    | Version    | Release Information     | Supported RN Version    | Supported Autolink     | Compile API Version     | Community Baseline Version    | npm Address                |
 | ----------------------------------------------- | ---------------- | --------------------------------------------------------------------------- | --------------- | -------- | ------- | ------ | ------------------------------------------------------------------------------------------ |
-| @react-native-oh-tpl/react-native-nested-scroll | ~0.14.2  | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72  | 否 | API12+ | 0.14.0 | [Npm Address](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) |
+| @react-native-ohos/react-native-nested-scroll | ~0.14.2 | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72 | No | API12+ | 0.14.0 | [Npm Address](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) |
+| @react-native-oh-tpl/react-native-nested-scroll | <=0.14.2@deprecated | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72  | No | API12+ | 0.14.0 | [Npm Address](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) |
 
 
 ## Installation and Usage
 
-Please go to the Releases release address of the third-party library to view the supporting version information: [@react-native-oh-tpl/react-native-nested-scroll Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases). For older versions that are not published to npm, install the tgz package by referring to the [Installation Guide](/en-us/tgz-usage.md).
+Please go to the Releases release address of the third-party library to view the supporting version information: [@react-native-ohos/react-native-nested-scroll Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases). For older versions that are not published to npm, install the tgz package by referring to the [Installation Guide](/en-us/tgz-usage.md).
 
 Navigate to your project directory and enter the following command:
 
@@ -22,13 +23,13 @@ Navigate to your project directory and enter the following command:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-nested-scroll
+npm install @react-native-ohos/react-native-nested-scroll
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-nested-scroll
+yarn add @react-native-ohos/react-native-nested-scroll
 ```
 
 <!-- tabs:end -->
@@ -73,7 +74,7 @@ Open `entry/oh-package.json5` and add the following dependency:
 
 ```json
 "dependencies": {
-    "@react-native-oh-tpl/react-native-nested-scroll": "file:../../node_modules/@react-native-oh-tpl/react-native-nested-scroll/harmony/nested_scroll.har"
+    "@react-native-ohos/react-native-nested-scroll": "file:../../node_modules/@react-native-ohos/react-native-nested-scroll/harmony/nested_scroll.har"
   }
 ```
 
@@ -99,7 +100,7 @@ Open `entry/src/main/cpp/CMakeLists.txt` and add the following:
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 
 # RNOH_BEGIN: manual_package_linking_1
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-nested-scroll/src/main/cpp" ./nested-scroll)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-nested-scroll/src/main/cpp" ./nested-scroll)
 # RNOH_END: manual_package_linking_1
 
 # RNOH_BEGIN: manual_package_linking_2
@@ -158,7 +159,7 @@ The following code demonstrates the basic usage of this library:
 ```js
 import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {NestedScrollView, NestedScrollViewHeader} from '@react-native-oh-tpl/react-native-nested-scroll';
+import {NestedScrollView, NestedScrollViewHeader} from '@react-native-ohos/react-native-nested-scroll';
 
 function NestedScrollFlatList() {
   return (
@@ -312,7 +313,7 @@ None
 
 ## How to Contribute
 
-使用过程中发现任何问题都可以提交 [Issue](https://gitcode.com/CPF-RN/rntpc_react-native-nested-scroll/issues)，当然，也非常欢迎提交 [PR](https://github.com/react-native-oh-library/react-native-nested-scroll/pulls).
+使用过程中发现任何问题都可以提交 [Issue](https://github.com/react-native-oh-library/react-native-nested-scroll/issues)，当然，也非常欢迎提交 [PR](https://github.com/react-native-oh-library/react-native-nested-scroll/pulls).
 
 ## 6. Open Source License
 
