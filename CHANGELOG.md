@@ -2,6 +2,10 @@
 
 ## 鸿蒙化Log
 
+### v0.15.0
+
+- release: @react-native-ohos/react-native-nested-scroll@0.15.0
+
 ### v0.15.0-rc.2
 
 - pre-release:@react-native-ohos/react-native-nested-scroll@0.15.0-rc.2([6d229e1](https://github.com/react-native-oh-library/react-native-nested-scroll/pull/31))
