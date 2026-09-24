@@ -1,76 +1,82 @@
-> Template Version: v0.4.1
+> Document Template: v0.4.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-nested-scroll</code> </h1>
 </p>
 
-This project is developed based on [react-native-nested-scroll@0.14.0](https://github.com/sdcxtech/react-native-troika/tree/master/packages/nested-scroll).
+This project is based on [react-native-nested-scroll@0.14.0](https://github.com/sdcxtech/react-native-troika/tree/master/packages/nested-scroll).
 
-| Name    | Version    | Release Information     | Supported RN Version    | Supported Autolink     | Compile API Version     | Community Baseline Version    | npm Address                |
-| ----------------------------------------------- | ---------------- | --------------------------------------------------------------------------- | --------------- | -------- | ------- | ------ | ------------------------------------------------------------------------------------------ |
-| @react-native-ohos/react-native-nested-scroll | ~0.14.2 | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72 | No | API12+ | 0.14.0 | [Npm Address](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) |
-| @react-native-oh-tpl/react-native-nested-scroll | <=0.14.2@deprecated | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72  | No | API12+ | 0.14.0 | [Npm Address](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) |
+This third-party library supports direct download from npm, the new package name is: `@react-native-ohos/react-native-nested-scroll`, the version correspondence details are as follows:
 
+| Name | Version(Npm Address) | Release Information | Supported RN Version | Supported Autolink | Compile API Version | Community Baseline Version | Source code address |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.82.* | Yes | API12+ | 0.14.2 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
+| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.77.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
+| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.0 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
+| @react-native-oh-tpl/react-native-nested-scroll | [<=0.14.2@deprecated](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll) |
 
-## Installation and Usage
+## Introduction
 
-Please go to the Releases release address of the third-party library to view the supporting version information: [@react-native-ohos/react-native-nested-scroll Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases). For older versions that are not published to npm, install the tgz package by referring to the [Installation Guide](/en-us/tgz-usage.md).
+NestedScrollView is a native UI component for React Native. It is used to implement view structures where the outermost layer is a vertically scrollable view, i.e. NestedScrollView, whose children usually consist of a header (NestedScrollViewHeader) and a horizontally scrollable view, and the innermost layer consists of several vertically scrollable views, such as ScrollView, FlashList, WebView, etc.<br/>
+NestedScrollView coordinates the vertical scrolling between the innermost and outermost scrollable views, making the scrolling experience smoother.
 
-Navigate to your project directory and enter the following command:
+## Installation
 
-<!-- tabs:start -->
+Go to the project directory and execute the following instruction:
 
-#### **npm**
+**npm**
 
 ```bash
 npm install @react-native-ohos/react-native-nested-scroll
 ```
 
-#### **yarn**
+**yarn**
 
 ```bash
 yarn add @react-native-ohos/react-native-nested-scroll
 ```
 
-<!-- tabs:end -->
-
 ## Link
 
-|                                      | Is supported autolink  | Supported RN Version |
-|--------------------------------------|-----------------------|----------------------|
-| ~0.14.2                              |  No              |  0.72     |
+| Version | Supported Autolink | Supported RN Version |
+|------|--------------------|----------------------|
+| ~0.14.3 | No | 0.72.* |
+| <=0.14.2@deprecated | No | 0.72.* |
 
-this step is a guide to manually configure native dependencies.
+Projects using AutoLink need to be configured according to this document, AutoLink framework guide: https://gitcode.com/CPF-RN/ohos_react_native/blob/main/docs/en/02-development/02-development-guide/autolinking.md
 
-First, use DevEco Studio to open the HarmonyOS project `harmony` in the project directory.
+ManualLink: This step provides guidance for manually configuring native dependencies.
+
+Open the `harmony` directory of the OpenHarmony project in DevEco Studio.
 
 ### 1. Overrides RN SDK
 
-To ensure the project depends on the same version of the RN SDK, you need to add an `overrides` field in the `harmony/oh-package.json5` file at the project's root directory. This field should point to the RN SDK version required by the project. The version can be a specific version number, a fuzzy version, a local HAR package, or a source code directory.
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
 
-For more information about this field, please refer to the [official documentation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#zh-cn_topic_0000001792256137_overrides).
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
   "overrides": {
-    "@rnoh/react-native-openharmony": "^0.72.38"
+    "@rnoh/react-native-openharmony": "~0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Importing Native Code
+### 2. Introducing Native Code
 
-There are currently two methods:
+Currently, two methods are available:
 
-- By importing HAR packages;
-- By directly linking the source code.
+- Use the HAR file.
+- Directly link to the source code.
 
-Method 1: Importing via HAR package (Recommended)
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP]
-> The HAR package is located in the `harmony` folder of the third-party library's installation path.
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-Open `entry/oh-package.json5` and add the following dependency:
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -78,85 +84,109 @@ Open `entry/oh-package.json5` and add the following dependency:
   }
 ```
 
-Click the `sync` button in the top right corner.
+Click the `sync` button in the upper right corner.
 
-Or execute in the terminal:
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-Method 2: Directly linking the source code
+Method 2: Directly link to the source code.
 
-> [!TIP]
-> To link the source code directly, please refer to the [instructions for linking source code directly](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](https://gitcode.com/CPF-RN/usage-docs/blob/master/en/link-source-code.md).
 
-### 3. Configure CMakeLists and Import NestedScrollViewPackage
+### 3. Configuring CMakeLists and Introducing NestedScrollViewPackage
 
-Open `entry/src/main/cpp/CMakeLists.txt` and add the following:
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
+project(rnapp)
+cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
+set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
+set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules/@rnoh/react-native-openharmony/src/main/cpp")
+set(RNOH_GENERATED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/generated")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
+
+add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 + add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-nested-scroll/src/main/cpp" ./nested-scroll)
 # RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "${RNOH_CURRENT_SOURCE_DIR}/generated/*.cpp")
+
+add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
+    "./PackageProvider.cpp"
+    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
+)
+
+target_link_libraries(rnoh_app PUBLIC rnoh)
 
 # RNOH_BEGIN: manual_package_linking_2
 + target_link_libraries(rnoh_app PUBLIC rnoh_nested_scroll)
 # RNOH_END: manual_package_linking_2
 ```
 
-Open `entry/src/main/cpp/PackageProvider.cpp` and add the following:
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
-#include "generated/RNOHGeneratedPackage.h"
 + #include "NestedScrollViewPackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<RNOHGeneratedPackage>(ctx),
-+      std::make_shared<NestedScrollViewPackage>(ctx)
++     std::make_shared<NestedScrollViewPackage>(ctx),
     };
 }
 ```
-</details>
+
 
 ### Running
 
-Click the `sync` button in the top right corner.
+Click the `sync` button in the upper right corner.
 
-Or execute in the terminal:
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-Then, build and run the project.
+Then build and run the code.
 
-## Constraints and Limitations
+## Constraints
 
 ### Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+This document is verified based on the following versions:
 
-Verified in the following versions.
 1. RNOH: 0.72.96; SDK: HarmonyOS 6.0.0 Release SDK; IDE: DevEco Studio 6.0.0.858; ROM: 6.0.0.112;
 
+### Permission Requirements
+
+No special permission is required.
 
 ## Example
 
-The following code demonstrates the basic usage of this library:
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING]
-> The import name of the library remains the same when used.
+> [!WARNING] The name of the imported repository remains unchanged.
 
-```js
+```jsx
 import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {NestedScrollView, NestedScrollViewHeader} from '@react-native-ohos/react-native-nested-scroll';
@@ -171,7 +201,7 @@ function NestedScrollFlatList() {
 
       <View style={{ height: "90%"}}>
 
-        <ScrollView> 
+        <ScrollView>
           <Text style={{ height: 30}}>test1</Text>
           <Text style={{ height: 30}}>test2</Text>
           <Text style={{ height: 30}}>test3</Text>
@@ -228,93 +258,94 @@ const styles = StyleSheet.create({
   },
 });
 export default NestedScrollFlatList
-
 ```
+
+## How to Use
+
+**Basic Usage**
+
+```jsx
+<NestedScrollView style={styles.coordinator} bounces = {false}>
+   <NestedScrollViewHeader stickyHeight={60}>
+        <Image source={require('../assets/cover.webp')} style={styles.image} resizeMode="cover" />
+        <Text style={styles.text}>anchor</Text>
+    </NestedScrollViewHeader>
+</NestedScrollView>
+```
+
+**Note**
+
+On Android, this library is implemented based on the NestedScrolling API. Remember to enable the `nestedScrollEnabled` property for the innermost scrollable views.
 
 ## Available APIs
 
-> [!TIP]
-> The "Platform" column indicates the platforms on which these props are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP]
-> If the value in the "HarmonyOS Support" column is "yes," it means the prop is supported on the HarmonyOS platform; "no" means it is not supported; "partially" means that some of its features are supported. The usage of this prop is the same on different platforms, and its effect is consistent with that on iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the OpenHarmony platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-### NestedScrollView
-| Name        | Description                                       | Type   | Required | Platform | HarmonyOS Support |
-| ----------- | ------------------------------------------------- | ------ | -------- | -------- | ----------------- |
-| bounces    | Elastic effect                               | boolean | NO       | All      | yes               |
+### Components
 
-### NestedScrollViewHeader
-| Name        | Description                                       | Type   | Required | Platform | HarmonyOS Support |
-| ----------- | ------------------------------------------------- | ------ | -------- | -------- | ----------------- |
-| stickyHeight| The area of the header height will be pinned to the top                                      | number | NO       | All      | yes               |
-| stickyHeaderBeginIndex | It means that starting with the first few subcomponents, the subassemblies will be pinned to the top | number | NO       | All      | yes               |
-| onScroll    |component callbacks                             | function | NO       | All      | yes               |
+| Name         | Parameter Type                 | Required  | Platform  | OpenHarmony Platform Support | Description          |
+|--------------|------------------------|------|------|--------------|----------------------|
+| NestedScrollView | [NestScrollProps](#NestScrollProps) | no | all | Yes | A nested scroll view container that coordinates vertical scrolling between the innermost and outermost scrollable views. |
+| NestedScrollViewHeader | [NestedScrollViewHeaderProps](#NestedScrollViewHeaderProps) | no | all | Yes | The header view of nested scrolling, which supports pinning child components to the top. |
+
+### Properties
+
+NestScrollProps
+
+| Name | Parameter Type | Default Value | Required | Platform | OpenHarmony Platform Support | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| bounces | boolean | false | no | iOS | Yes | Sets whether NestedScrollView is bouncy. Once set to true, the innermost scrollable view loses its bounce effect. |
+| onScroll | function | None | no | Android, iOS | Yes | Scroll callback function. |
+
+NestedScrollViewHeaderProps
+
+| Name | Parameter Type | Default Value | Required | Platform | OpenHarmony Platform Support | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| stickyHeight | number | -1 | no | Android, iOS | Yes | Indicates how tall a region of the header will be pinned to the top. |
+| stickyHeaderBeginIndex | number | -1 | no | Android, iOS | Yes | Indicates the index of the child component from which child components will be pinned to the top. |
+| onScroll | function | None | no | Android, iOS | Yes | Scroll callback function, which can be used to implement a parallax effect for the header view. |
 
 ## Known Issues
 
 None
 
-## Directory Structure
+## Other
 
-```
-/react-native-nested-scroll
-├── harmony/                          # HarmonyOS 原生模块代码
-│   └── nested_scroll/
-│       ├── build-profile.json5       # HarmonyOS 构建配置
-│       ├── consumer-rules.txt          # 消费者混淆规则
-│       ├── hvigorfile.ts             # HarmonyOS 构建脚本
-│       ├── Index.ets                 # ETS 入口文件
-│       ├── obfuscation-rules.txt     # 代码混淆规则
-│       ├── oh-package.json5          # HarmonyOS 包配置
-│       ├── oh-package-lock.json5     # 包锁定文件
-│       ├── ts.ts                     # TypeScript 类型定义
-│       └── src/
-│           ├── main/
-│           │   ├── cpp/              # C++ 原生实现 (New Architecture)
-│           │   │   ├── CMakeLists.txt
-│           │   │   ├── ComponentDescriptors.h
-│           │   │   ├── EventEmitters.h / .cpp
-│           │   │   ├── NestedScrollViewComponentInstance.h / .cpp
-│           │   │   ├── NestedScrollViewEmitRequestHandler.h
-│           │   │   ├── NestedScrollViewHeaderComponentInstance.h / .cpp
-│           │   │   ├── NestedScrollViewHeaderEmitRequestHandler.h
-│           │   │   ├── NestedScrollViewHeaderJSIBinder.h
-│           │   │   ├── NestedScrollViewHeaderNapiBinder.h
-│           │   │   ├── NestedScrollViewHeaderNode.h / .cpp
-│           │   │   ├── NestedScrollViewJSIBinder.h
-│           │   │   ├── NestedScrollViewNapiBinder.h
-│           │   │   ├── NestedScrollViewNode.h / .cpp
-│           │   │   ├── NestedScrollViewPackage.h
-│           │   │   ├── Props.h / .cpp
-│           │   │   ├── ShadowNodes.h / .cpp
-│           │   │   └── States.h / .cpp
-│           │   ├── module.json5
-│           │   └── resources/        # 国际化资源
-│           │       ├── base/element/string.json
-│           │       ├── en_US/element/string.json
-│           │       └── zh_CN/element/string.json
-│           └── test/                 # 测试文件
-│               ├── Ability.test.ets
-│               ├── List.test.ets
-│               └── LocalUnit.test.ets
-│   └── nested_scroll.har             # HarmonyOS 归档包
-├── src/                              # JS/TS 前端代码
-│   ├── index.tsx                     # 主入口，导出 NestedScrollView 和 NestedScrollViewHeader
-│   ├── nestedScrollNativeComponent.ts # 定义 NestedScrollView 原生组件 Props 和事件
-│   └── NestedScrollViewHeader/
-│       ├── index.tsx                 # Header 组件封装
-│       └── nestedScrollHeaderNativeComponent.ts # 定义 Header 原生组件 Props 和事件
-├── package.json
-├── README.md
-├── README.OpenSource
-└── LICENSE
-```
+None
+
+## Directory Structure
+````
+/react-native-nested-scroll  # Project root directory
+├── harmony                       # HarmonyOS adaptation code
+│   ├── nested_scroll.har         # har package
+│   └── nested_scroll             # Core HarmonyOS adaptation code
+│       ├── Index.ets             # Entry file of the HarmonyOS adaptation code
+│       ├── ts.ts                 # TypeScript export entry
+│       └── src/main
+│           ├── cpp               # C++ adaptation code (NestedScrollViewPackage, ComponentInstance, Props, ShadowNodes, etc.)
+│           ├── module.json5      # Module configuration file
+│           └── resources         # Resource files
+├── src                           # React Native code
+│   ├── index.tsx                 # Entry file, exporting NestedScrollView and NestedScrollViewHeader
+│   ├── nestedScrollNativeComponent.tsx # Native component Codegen declaration of NestedScrollView
+│   └── NestedScrollViewHeader    # NestedScrollViewHeader component
+│       ├── index.tsx             # NestedScrollViewHeader component wrapper
+│       └── nestedScrollHeaderNativeComponent.tsx # Native component Codegen declaration of the Header
+├── react-native.config.js        # RN configuration file
+├── package.json                  # Package configuration file
+├── CHANGELOG.md                  # Version change records
+├── README.OpenSource             # Open-source information statement
+├── LICENSE                       # License file
+├── README.md                     # Chinese installation and usage instructions
+└── README_en.md                  # English installation and usage instructions
+````
 
 ## How to Contribute
 
-使用过程中发现任何问题都可以提交 [Issue](https://github.com/react-native-oh-library/react-native-nested-scroll/issues)，当然，也非常欢迎提交 [PR](https://github.com/react-native-oh-library/react-native-nested-scroll/pulls).
+If you find any problem during the use, you can submit an [Issue](https://github.com/react-native-oh-library/react-native-nested-scroll/issues). Of course, we also welcome you to submit a [PR](https://github.com/react-native-oh-library/react-native-nested-scroll/pulls).
 
-## 6. Open Source License
+## License
 
-This project is based on [The MIT License (MIT)](https://github.com/sdcxtech/react-native-troika/blob/master/packages/nested-scroll/LICENSE), feel free to enjoy and participate in open source.
+This project is based on [The MIT License (MIT)](https://github.com/sdcxtech/react-native-troika/blob/master/packages/nested-scroll/LICENSE). Feel free to enjoy and participate in open source.
