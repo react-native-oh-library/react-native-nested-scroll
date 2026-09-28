@@ -11,7 +11,6 @@ This third-party library supports direct download from npm, the new package name
 | Name | Version(Npm Address) | Release Information | Supported RN Version | Supported Autolink | Compile API Version | Community Baseline Version | Source code address |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.82.* | Yes | API12+ | 0.14.2 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
-| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.77.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
 | @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.0 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
 | @react-native-oh-tpl/react-native-nested-scroll | [<=0.14.2@deprecated](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll) |
 
@@ -297,7 +296,6 @@ NestScrollProps
 | Name | Parameter Type | Default Value | Required | Platform | OpenHarmony Platform Support | Description |
 | --- | --- | --- | --- | --- | --- | --- |
 | bounces | boolean | false | no | iOS | Yes | Sets whether NestedScrollView is bouncy. Once set to true, the innermost scrollable view loses its bounce effect. |
-| onScroll | function | None | no | Android, iOS | Yes | Scroll callback function. |
 
 NestedScrollViewHeaderProps
 
