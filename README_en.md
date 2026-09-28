@@ -11,7 +11,7 @@ This third-party library supports direct download from npm, the new package name
 | Name | Version(Npm Address) | Release Information | Supported RN Version | Supported Autolink | Compile API Version | Community Baseline Version | Source code address |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.82.* | Yes | API12+ | 0.14.2 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
-| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.0 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
+| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
 | @react-native-oh-tpl/react-native-nested-scroll | [<=0.14.2@deprecated](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll) |
 
 ## Introduction
@@ -272,9 +272,6 @@ export default NestedScrollFlatList
 </NestedScrollView>
 ```
 
-**Note**
-
-On Android, this library is implemented based on the NestedScrolling API. Remember to enable the `nestedScrollEnabled` property for the innermost scrollable views.
 
 ## Available APIs
 
@@ -315,29 +312,34 @@ None
 
 ## Directory Structure
 ````
+````
 /react-native-nested-scroll  # Project root directory
 ├── harmony                       # HarmonyOS adaptation code
 │   ├── nested_scroll.har         # har package
 │   └── nested_scroll             # Core HarmonyOS adaptation code
-│       ├── Index.ets             # Entry file of the HarmonyOS adaptation code
+│       ├── Index.ets             # HarmonyOS adaptation code entry
 │       ├── ts.ts                 # TypeScript export entry
+│       ├── build-profile.json5   # Build configuration file
+│       ├── hvigorfile.ts         # Hvigor build script
+│       ├── oh-package.json5      # Package management config file
 │       └── src/main
-│           ├── cpp               # C++ adaptation code (NestedScrollViewPackage, ComponentInstance, Props, ShadowNodes, etc.)
-│           ├── module.json5      # Module configuration file
+│           ├── cpp               # C++ adaptation code (NestedScrollViewPackage, NestedScrollViewComponentInstance, Props, ShadowNodes, etc.)
+│           ├── module.json5      # Module config file
 │           └── resources         # Resource files
-├── src                           # React Native code
-│   ├── index.tsx                 # Entry file, exporting NestedScrollView and NestedScrollViewHeader
-│   ├── nestedScrollNativeComponent.tsx # Native component Codegen declaration of NestedScrollView
+├── src                           # RN code
+│   ├── index.tsx                 # Entry file, exports NestedScrollView and NestedScrollViewHeader
+│   ├── nestedScrollNativeComponent.tsx # NestedScrollView native component Codegen declaration
 │   └── NestedScrollViewHeader    # NestedScrollViewHeader component
 │       ├── index.tsx             # NestedScrollViewHeader component wrapper
-│       └── nestedScrollHeaderNativeComponent.tsx # Native component Codegen declaration of the Header
-├── react-native.config.js        # RN configuration file
-├── package.json                  # Package configuration file
-├── CHANGELOG.md                  # Version change records
-├── README.OpenSource             # Open-source information statement
+│       └── nestedScrollHeaderNativeComponent.tsx # Header native component Codegen declaration
+├── react-native.config.js        # RN config file
+├── package.json                  # Package config file
+├── CHANGELOG.md                  # Changelog
+├── README.OpenSource             # Open source info
 ├── LICENSE                       # License file
-├── README.md                     # Chinese installation and usage instructions
-└── README_en.md                  # English installation and usage instructions
+├── README.md                     # Chinese installation guide
+└── README_en.md                  # English installation guide
+````
 ````
 
 ## How to Contribute

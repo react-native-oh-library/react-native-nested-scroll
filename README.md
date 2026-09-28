@@ -11,7 +11,7 @@
 | 三方库名称 | 三方库版本（npm地址） | 发布信息 | 支持RN版本 | Autolink | 编译API版本 | 社区基线版本 | 源码地址 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.82.* | 是 | API12+ | 0.14.2 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
-| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | 否 | API12+ | 0.14.0 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
+| @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | 否 | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
 | @react-native-oh-tpl/react-native-nested-scroll | [<=0.14.2@deprecated](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | 否 | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll) |
 
 ## 简介
@@ -272,10 +272,6 @@ export default NestedScrollFlatList
 </NestedScrollView>
 ```
 
-**注意事项**
-
-在 Android 上，本库基于 NestedScrolling API 实现，请记得为最内层可滚动视图开启 `nestedScrollEnabled` 属性。
-
 ## 接口说明
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -314,14 +310,18 @@ NestedScrollViewHeaderProps
 
 ## 目录结构
 ````
+````
 /react-native-nested-scroll  # 项目根目录
 ├── harmony                       # 鸿蒙适配代码
 │   ├── nested_scroll.har         # har包
 │   └── nested_scroll             # 鸿蒙适配核心代码
 │       ├── Index.ets             # 鸿蒙适配代码入口
 │       ├── ts.ts                 # TypeScript 导出入口
+│       ├── build-profile.json5   # 构建配置文件
+│       ├── hvigorfile.ts         # Hvigor 构建脚本
+│       ├── oh-package.json5      # 包管理配置文件
 │       └── src/main
-│           ├── cpp               # C++ 适配代码（NestedScrollViewPackage、ComponentInstance、Props、ShadowNodes 等）
+│           ├── cpp               # C++ 适配代码（NestedScrollViewPackage、NestedScrollViewComponentInstance、Props、ShadowNodes 等）
 │           ├── module.json5      # 模块配置文件
 │           └── resources         # 资源文件
 ├── src                           # RN代码
@@ -337,6 +337,7 @@ NestedScrollViewHeaderProps
 ├── LICENSE                       # 开源协议文件
 ├── README.md                     # 中文安装使用方法
 └── README_en.md                  # 英文安装使用方法
+````
 ````
 
 ## 贡献代码
