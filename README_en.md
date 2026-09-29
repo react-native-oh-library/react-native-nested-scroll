@@ -10,7 +10,7 @@ This third-party library supports direct download from npm, the new package name
 
 | Name | Version(Npm Address) | Release Information | Supported RN Version | Supported Autolink | Compile API Version | Community Baseline Version | Source code address |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.82.* | Yes | API12+ | 0.14.0 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
+| @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.82.* | Yes | API12+ | 0.14.2 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
 
 ## Introduction
 
@@ -270,10 +270,6 @@ export default NestedScrollFlatList
     </NestedScrollViewHeader>
 </NestedScrollView>
 ```
-
-**Note**
-
-On Android, this library is implemented based on the NestedScrolling API. Remember to enable the `nestedScrollEnabled` property for the innermost scrollable views.
 
 ## Available APIs
 
