@@ -43,7 +43,9 @@ yarn add @react-native-ohos/react-native-nested-scroll
 
 使用AutoLink的工程需要根据该文档配置，Autolink框架指导文档：https://gitcode.com/CPF-RN/ohos_react_native/blob/main/docs/zh-cn/02-开发/02-开发指南/Autolinking.md
 
-ManualLink: 此步骤为手动配置原生依赖项的指导
+如您使用的版本支持 Autolink，并且工程已接入 Autolink，可跳过ManualLink配置。
+<details>
+  <summary>ManualLink: 此步骤为手动配置原生依赖项的指导</summary>
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
@@ -151,7 +153,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
     };
 }
 ```
-
+</details>
 
 ### 运行
 
@@ -309,7 +311,6 @@ NestedScrollViewHeaderProps
 
 ## 目录结构
 ````
-````
 /react-native-nested-scroll  # 项目根目录
 ├── harmony                       # 鸿蒙适配代码
 │   ├── nested_scroll.har         # har包
@@ -336,7 +337,6 @@ NestedScrollViewHeaderProps
 ├── LICENSE                       # 开源协议文件
 ├── README.md                     # 中文安装使用方法
 └── README_en.md                  # 英文安装使用方法
-````
 ````
 
 ## 贡献代码
