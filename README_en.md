@@ -10,7 +10,6 @@ This third-party library supports direct download from npm, the new package name
 
 | Name | Version(Npm Address) | Release Information | Supported RN Version | Supported Autolink | Compile API Version | Community Baseline Version | Source code address |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| @react-native-ohos/react-native-nested-scroll | [~0.15.0](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [GitCode Releases](https://gitcode.com/CPF-RN/react-native-nested-scroll/releases) | 0.82.* | Yes | API12+ | 0.14.2 | [br_rnoh0.82](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/br_rnoh0.82) |
 | @react-native-ohos/react-native-nested-scroll | [~0.14.3](https://www.npmjs.com/package/@react-native-ohos/react-native-nested-scroll) | [Github Releases](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll/tree/sig) |
 | @react-native-oh-tpl/react-native-nested-scroll | [<=0.14.2@deprecated](https://www.npmjs.com/package/@react-native-oh-tpl/react-native-nested-scroll) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-nested-scroll/releases) | 0.72.* | No | API12+ | 0.14.2 | [sig](https://github.com/react-native-oh-library/react-native-nested-scroll) |
 
@@ -44,7 +43,9 @@ yarn add @react-native-ohos/react-native-nested-scroll
 
 Projects using AutoLink need to be configured according to this document, AutoLink framework guide: https://gitcode.com/CPF-RN/ohos_react_native/blob/main/docs/en/02-development/02-development-guide/autolinking.md
 
-ManualLink: This step provides guidance for manually configuring native dependencies.
+If the version you are using supports Autolink and the project has integrated Autolink, you can skip the ManualLink configuration.
+<details>
+  <summary>ManualLink: This step provides guidance for manually configuring native dependencies.</summary>
 
 Open the `harmony` directory of the OpenHarmony project in DevEco Studio.
 
@@ -152,7 +153,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
     };
 }
 ```
-
+</details>
 
 ### Running
 
@@ -312,7 +313,6 @@ None
 
 ## Directory Structure
 ````
-````
 /react-native-nested-scroll  # Project root directory
 ├── harmony                       # HarmonyOS adaptation code
 │   ├── nested_scroll.har         # har package
@@ -339,7 +339,6 @@ None
 ├── LICENSE                       # License file
 ├── README.md                     # Chinese installation guide
 └── README_en.md                  # English installation guide
-````
 ````
 
 ## How to Contribute
